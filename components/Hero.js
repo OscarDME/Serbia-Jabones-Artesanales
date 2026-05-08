@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { copy } from "@/lib/copy";
 import { ChevronDown, Sparkles } from "lucide-react";
 
@@ -114,10 +115,16 @@ export default function Hero() {
             <div className="absolute bottom-0 left-0 w-60 h-60 rounded-full bg-[var(--color-cream-deep)] blur-3xl opacity-70" />
           </div>
           <div className="relative animate-float-slow">
-            <img
+            <Image
               src="/hero-portrait.webp"
               alt={hero.imageAlt}
-              className="w-full max-w-[480px] mx-auto rounded-3xl drop-shadow-2xl"
+              width={480}
+              height={640}
+              priority
+              fetchPriority="high"
+              sizes="(max-width: 768px) 90vw, 480px"
+              className="w-full max-w-[480px] mx-auto rounded-3xl drop-shadow-2xl h-auto"
+              quality={85}
             />
           </div>
         </div>
